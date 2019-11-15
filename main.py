@@ -18,15 +18,20 @@ for i in range(0, number_of_cases):
         sys.exit(0)
 
     for x in range(1, user_number):
+        if x > 9:
+            user_numbers.append(['0', '0'])
+            result = 'n is over 9'
+            break
         result *= counter
         counter += 1
 
-    if len(str(result)) == 1:
-        user_numbers.append(['0', str(result)[-1]])
-        continue
-    else:
-        user_numbers.append([str(result)[-2], str(result)[-1]])
-        continue
+    if result != 'n is over 9':
+        if len(str(result)) == 1:
+            user_numbers.append(['0', str(result)[-1]])
+            continue
+        else:
+            user_numbers.append([str(result)[-2], str(result)[-1]])
+            continue
 
 for strong in user_numbers:
     print(f'{strong[0]} {strong[1]}')
